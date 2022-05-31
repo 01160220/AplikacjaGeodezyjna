@@ -38,23 +38,7 @@ class MyApp(QDialog):
         self.ui.przeliczenieXYZ_5.clicked.connect(self.obsluga_XYZ_rad)
         self.show()
 
-    def wybor_elipsoidy(self):
-        if self.ui.radioButton.isChecked() or self.ui.radioButton_10.isChecked() or self.ui.radioButton_20.isChecked() or self.ui.radioButton_25.isChecked():
-            self.a = 6378137.0
-            self.b = 6356752.31414036
-        elif self.ui.wgs_2.isChecked() or self.ui.wgs_3.isChecked() or self.ui.wgs_6.isChecked() or self.ui.wgs_5.isChecked():
-            self.a = 6378137.0 
-            self.b = 6356752.31424518 
-        else:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setWindowIcon(QtGui.QIcon('wykrzyknik.png'))
-            msg.setText('Wybierz elipsoide!')
-            msg.setInformativeText
-            msg.setWindowTitle("Sprawdź wprowadzone dane!")
-            msg.exec_()
-        self.flattening = (self.a - self.b) / self.a
-        self.ecc2 = (2 * self.flattening - self.flattening ** 2)
+    
         
     def obsluga_1992(self):
         self.wybor_elipsoidy()
@@ -181,6 +165,23 @@ class MyApp(QDialog):
         self.ui.label_40.setText('Y =' + str(self.Y) + ' ' + '[m]')
         self.ui.label_41.setText('Z =' + str(self.Z) + ' ' + '[m]')
 
+    def wybor_elipsoidy(self):
+        if self.ui.radioButton.isChecked() or self.ui.radioButton_10.isChecked() or self.ui.radioButton_20.isChecked() or self.ui.radioButton_25.isChecked():
+            self.a = 6378137.0
+            self.b = 6356752.31414036
+        elif self.ui.wgs_2.isChecked() or self.ui.wgs_3.isChecked() or self.ui.wgs_6.isChecked() or self.ui.wgs_5.isChecked():
+            self.a = 6378137.0 
+            self.b = 6356752.31424518 
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowIcon(QtGui.QIcon('wykrzyknik.png'))
+            msg.setText('Wybierz elipsoide!')
+            msg.setInformativeText
+            msg.setWindowTitle("Sprawdź wprowadzone dane!")
+            msg.exec_()
+        self.flattening = (self.a - self.b) / self.a
+        self.ecc2 = (2 * self.flattening - self.flattening ** 2)
 
     def wprowadzanie_danych(self,zmienna):
         if zmienna == 'stopnie':
@@ -273,7 +274,6 @@ class MyApp(QDialog):
                 msg.setInformativeText
                 msg.setWindowTitle("Sprawdź wprowadzone dane!")
                 msg.exec_()
-            
             #sekundfy fi
             if len(self.ui.fi_wprow_5.text()) != 0 and float(self.ui.fi_wprow_5.text()) >= 0 and float(self.ui.fi_wprow_5.text()) < 60: # zakres na phi <49 stopni, 54 stopni 50 minut>
                 fi_3 = float(self.ui.fi_wprow_5.text())
@@ -287,6 +287,7 @@ class MyApp(QDialog):
                 msg.setInformativeText
                 msg.setWindowTitle("Sprawdź wprowadzone dane!")
                 msg.exec_()
+                
         elif len(self.ui.fi_wprow_2.text()) == 0:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
@@ -320,7 +321,6 @@ class MyApp(QDialog):
                 msg.setInformativeText
                 msg.setWindowTitle("Sprawdź wprowadzone dane!")
                 msg.exec_()
-            
             #sekundy lambda
             if len(self.ui.fi_wprow_7.text()) != 0 and len(self.ui.fi_wprow_7.text()) >= 0 and len(self.ui.fi_wprow_7.text()) < 60:
                 lam_3 = float(self.ui.fi_wprow_7.text())
@@ -455,10 +455,10 @@ class MyApp(QDialog):
         if zmienna == 'stopnie':
             dlugosc_h = len(self.ui.lineEdit.text())
             wartosc_h = float(self.ui.lineEdit.text())
-        if zmienna == 'grady':
+        elif zmienna == 'grady':
             dlugosc_h = len(self.ui.lineEdit_4.text())
             wartosc_h = float(self.ui.lineEdit_4.text())
-        if zmienna == 'radiany':
+        elif zmienna == 'radiany':
             dlugosc_h = len(self.ui.lineEdit_5.text())
             wartosc_h = float(self.ui.lineEdit_5.text())
             
@@ -497,22 +497,6 @@ class MyApp(QDialog):
         self.Y = round(((N + self.hel) * np.cos(self.fi) * np.sin(self.lam)), 3)
         self.Z = round(((N * (1 - self.ecc2) + self.hel) * np.sin(self.fi)), 3)
         
-        
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__=="__main__":
     app = QApplication(sys.argv)
     w = MyApp()
