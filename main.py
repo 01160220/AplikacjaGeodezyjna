@@ -14,6 +14,14 @@ import numpy as np
 
 class MyApp(QDialog):
     def __init__(self):
+        '''
+        Funkcja odpowiedzialna za ogólną obsługę aplikacji oraz definiowanie potrzebnych parametróW 
+
+        Returns
+        -------
+        None.
+
+        '''
         super().__init__()
         self.setStyleSheet("background-color: #8fd970;")
         self.ui = Ui_MainWindow()
@@ -41,6 +49,14 @@ class MyApp(QDialog):
     
         
     def obsluga_1992(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy1992 w zakładce stopni dziesiętnych
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'stopnie'
         self.wprowadzanie_danych(zmienna)
@@ -52,6 +68,14 @@ class MyApp(QDialog):
         self.ui.label_3.setText('')
         
     def obsluga_2000(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy2000 w zakładce stopni dziesiętnych
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'stopnie'
         self.wprowadzanie_danych(zmienna)
@@ -63,6 +87,14 @@ class MyApp(QDialog):
         self.ui.label_3.setText('')
         
     def obsluga_XYZ(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia XYZ w zakładce stopni dziesiętnych
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'stopnie'
         self.wprowadzanie_danych(zmienna)   
@@ -74,6 +106,14 @@ class MyApp(QDialog):
         self.ui.label_3.setText('Z =' + str(self.Z) + ' ' + '[m]')
     
     def obsluga_1992_SMS(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy1992 w zakładce stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         self.wprowadzanie_SMS()    
         self.xy1992()
@@ -82,6 +122,14 @@ class MyApp(QDialog):
         self.ui.label_8.setText('')
         
     def obsluga_2000_SMS(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy2000 w zakładce stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         self.wprowadzanie_SMS()    
         self.xy2000_strefy_SMS()
@@ -90,6 +138,14 @@ class MyApp(QDialog):
         self.ui.label_8.setText('')
         
     def obsluga_XYZ_SMS(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia XYZ w zakładce stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         self.wprowadzanie_SMS()   
         self.XYZ_SMS()
@@ -99,6 +155,14 @@ class MyApp(QDialog):
     
     
     def obsluga_1992_grad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy1992 w zakładce grady
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'grady'
         self.wprowadzanie_danych(zmienna) 
@@ -110,6 +174,14 @@ class MyApp(QDialog):
         self.ui.label_33.setText('')
         
     def obsluga_2000_grad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy2000 w zakładce grady
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'grady'
         self.wprowadzanie_danych(zmienna) 
@@ -121,6 +193,14 @@ class MyApp(QDialog):
         self.ui.label_33.setText('')
         
     def obsluga_XYZ_grad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia XYZ w zakładce grady
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'grady'
         self.wprowadzanie_danych(zmienna)   
@@ -133,6 +213,14 @@ class MyApp(QDialog):
     
      
     def obsluga_1992_rad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy1992 w zakładce radiany
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'radiany'
         self.wprowadzanie_danych(zmienna) 
@@ -144,6 +232,14 @@ class MyApp(QDialog):
         self.ui.label_41.setText('')
         
     def obsluga_2000_rad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia xy2000 w zakładce radiany
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'radiany'
         self.wprowadzanie_danych(zmienna) 
@@ -155,6 +251,14 @@ class MyApp(QDialog):
         self.ui.label_41.setText('')
         
     def obsluga_XYZ_rad(self):
+        '''
+        Funkcja zbierająca wszytskie funkcje potrzebne do obsługi przeliczenia XYZ w zakładce radiany
+
+        Returns
+        -------
+        None.
+
+        '''
         self.wybor_elipsoidy()
         zmienna = 'radiany'
         self.wprowadzanie_danych(zmienna)   
@@ -166,6 +270,14 @@ class MyApp(QDialog):
         self.ui.label_41.setText('Z =' + str(self.Z) + ' ' + '[m]')
 
     def wybor_elipsoidy(self):
+        '''
+        Funkcja odpowiedzialna za zdefiniowanie parametrów elipsoidy 
+
+        Returns
+        -------
+        None.
+
+        '''
         if self.ui.radioButton.isChecked() or self.ui.radioButton_10.isChecked() or self.ui.radioButton_20.isChecked() or self.ui.radioButton_25.isChecked():
             self.a = 6378137.0
             self.b = 6356752.31414036
@@ -184,6 +296,18 @@ class MyApp(QDialog):
         self.ecc2 = (2 * self.flattening - self.flattening ** 2)
 
     def wprowadzanie_danych(self,zmienna):
+        '''
+        Funkcja odpowiedzialna za pobranie danych wprowadzonych przez użytkowanika
+
+        Parameters
+        ----------
+        zmienna : zmienna typu str - definiuje rodzaj wprowadzanych danych
+
+        Returns
+        -------
+        None.
+
+        '''
         if zmienna == 'stopnie':
             dlugosc_fi = len(self.ui.fi_wprow_2.text())
             wartosc_fi = float(self.ui.fi_wprow_2.text())
@@ -258,6 +382,14 @@ class MyApp(QDialog):
         
     
     def wprowadzanie_SMS(self):
+        '''
+        Funkcja odpowiedzialna za pobranie danych wprowadzonych przez użytkowanika w zakładce stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         # stopnie fi
         if len(self.ui.fi_wprow_3.text()) != 0 and float(self.ui.fi_wprow_3.text()) >= 49 and float(self.ui.fi_wprow_3.text()) <= 54.8333: # zakres na phi <49 stopni, 54 stopni 50 minut>
             fi_1 = float(self.ui.fi_wprow_3.text())
@@ -356,6 +488,14 @@ class MyApp(QDialog):
         self.lam = radians(lam_1+(lam_2/60)+(lam_3/3600))
     
     def xy1992(self):
+        '''
+        Funkcja odpowiedzialna za przeliczenie wprowadzonych danych do układu xy1992
+
+        Returns
+        -------
+        None.
+
+        '''
         lam0 = radians(19)
         b2 = (self.a**2)*(1 - self.ecc2)
         ep2 = ((self.a**2 - b2))/(b2)
@@ -375,6 +515,14 @@ class MyApp(QDialog):
         self.y1992 = round((ygk * m0) + 500000, 5)
         
     def xy2000_strefy(self):
+        '''
+        Funkcja odpowiadająca za wybór oraz zdefiniowanie strefy dla układu xy2000
+
+        Returns
+        -------
+        None.
+
+        '''
         if self.ui.radioButton_2.isChecked() or self.ui.radioButton_16.isChecked() or self.ui.radioButton_21.isChecked():
             self.strefa_00 = 5
             self.lam_0 = 15
@@ -403,7 +551,15 @@ class MyApp(QDialog):
             msg.setWindowTitle("Sprawdź wprowadzone dane!")
             msg.exec_()
             
-    def xy2000_strefy_SMS(self):        
+    def xy2000_strefy_SMS(self):         
+        '''
+        Funkcja odpowiadająca za wybór oraz zdefiniowanie strefy dla układu xy2000, w zakładce stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         if self.ui.radioButton_6.isChecked():
             self.strefa_00 = 5
             self.lam_0 = 15
@@ -433,6 +589,14 @@ class MyApp(QDialog):
             msg.exec_()
 
     def xy2000(self):
+        '''
+        Funkcja odpowiedzialna za przeliczenie wprowadzonych danych do układu xy2000
+
+        Returns
+        -------
+        None.
+
+        '''
         b2 = (self.a**2)*(1 - self.ecc2)
         ep2 = ((self.a**2 - b2))/(b2)
         t = np.tan(self.fi)
@@ -452,6 +616,14 @@ class MyApp(QDialog):
         self.y2000 = round(((ygk_00 * m_00) + (self.strefa_00 * 1000000) + 500000), 5)
        
     def XYZ(self,zmienna):
+        '''
+        Funkcja odpowiadająca za przeliczenie wprowadzonych danych do układu XYZ
+
+        Returns
+        -------
+        None.
+
+        '''
         if zmienna == 'stopnie':
             dlugosc_h = len(self.ui.lineEdit.text())
             wartosc_h = float(self.ui.lineEdit.text())
@@ -480,6 +652,14 @@ class MyApp(QDialog):
         self.Z = round(((N * (1 - self.ecc2) + self.hel) * np.sin(self.fi)), 3)
         
     def XYZ_SMS(self):
+        '''
+        Funkcja odpowiadająca za przeliczenie wprowadzonych danych do układu XYZ, w karcie stopnie,minuty,sekundy
+
+        Returns
+        -------
+        None.
+
+        '''
         if len(self.ui.lineEdit_2.text()) != 0:
             self.hel = float(self.ui.lineEdit_2.text())
         else:
